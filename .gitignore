@@ -1,0 +1,15 @@
+# Ignore data and results directories
+data/
+results/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.env
+.venv/
+
