@@ -34,3 +34,38 @@ Next steps:
 - Email to Ouakrim/Braffort drafted, pending send Monday morning
 - Annotation tool to be decided between ELAN and VIA
 - Write annotation methodology
+
+Mental state: On one hand, excited, because I feel like I found a way to contribute, on the other, I hope that someone replies so I can move forward with it!
+
+# 25.05.2026
+
+30-min call with Ouakrim who kindly took the time to answer the questions I had.
+1. Is there anyone already doing this project or something similar?
+Not that he knows. He didn't know about the paper, Artiaga 2025. Maybe Julie Lascar who worked on Matignon-LSF, looked into it, but from what I found (Google Scholar), she worked and published on other topics.
+
+2. Exact list of videos? Or Ortolang access?
+Acquired exact list of videos used in Matignon-LSF but Ortolang access can't be given, at least by him.
+
+3. Honest opinion on the project?
+He looks optimistic, positive and excited to see what the end result will be. He's open to answering other questions if there's any.
+For the last part, evaluate signer dependency, it will require fine-tuning of the chosen model on training dataset before evaluating it. We can then use for a Mediapipe model which is relatively lightweight to check if the poses are signer-dependant.
+Also, he recommended using automatic segmentation and face recognition to label signers. Apparently one of the 2 Julie, developed a script to count the number of signers in the dataset they had. Since it hasn't been shared, I take it as it's either not maintained or experimental.
+
+4. Visiting researcher status?
+He mentioned asking relevant teams to become an associate researcher to get Ortolang and Jean Zay (French supercomputer) access.
+
+5. CSV? ELAN? VIA? 
+He only used a simple CSV format.
+
+6. Other sources or documents?
+- Dictasign LSF
+- Julie Lascar and Julie Halbout papers to find if there's anything related to Matignon-LSF (haven't found anything on github.com/JulieLascar/Matignon-LSF, the repb was last updated 2 years ago except one folder, where a Python jupyter notebook was added to extend corpus from I understand)
+
+Mental state: Was super stressed before the call, a bit intimated, but now I'm even more motivated to work on it! A litle tired though.
+
+Decisions:
+- Annotation tool: CSV
+
+Next steps:
+- Follow-up mail if more questions show (Already have some, model choice, mediapipe why? clarify fine-tuning, Julie's script for automatic count of signers)
+- Write annotation methodology
