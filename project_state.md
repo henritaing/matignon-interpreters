@@ -80,6 +80,11 @@ Decisions:
 - Go with manual annotation, then automatic pipeline that we'll be able to test on the newly annotated dataset
 - The gallery will be in the data folder which is ignored in .gitignore because we want to keep interpreters' privacy
 
+Created the playlist with the list Ouakrim shared: https://www.youtube.com/watch?v=0hXvxmgHk_c&list=PLgtU_g_Bn-2Y1tvjm97zGzEZDhnpiM6Au
+
+Checked again Lascar's Github, the crop part looks usable of the following script: https://github.com/JulieLascar/Matignon-LSF/blob/main/collecting_data/Downloading%20the%20videos%2C%20audio%2C%20and%20subtitles%20-%20Cropping%20the%20interpreter.ipynb
+However, we'll have to find another solution for downloading the videos since pytube, yt-dl are not maintained anymore. Also, Youtube API doesn't allow it either since it's against their terms and conditions. 
+
 Next steps:
 - Build the gallery in data/Interpreter_gallery for next week
 
