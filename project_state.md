@@ -59,7 +59,7 @@ He only used a simple CSV format.
 
 6. Other sources or documents?
 - Dictasign LSF
-- Julie Lascar and Julie Halbout papers to find if there's anything related to Matignon-LSF (haven't found anything on github.com/JulieLascar/Matignon-LSF, the repb was last updated 2 years ago except one folder, where a Python jupyter notebook was added to extend corpus from I understand)
+- Julie Lascar and Julie Halbout papers to find if there's anything related to Matignon-LSF (haven't found anything on github.com/JulieLascar/Matignon-LSF, the repo was last updated 2 years ago except one folder, where a Python jupyter notebook was added to extend corpus from I understand)
 
 Mental state: Was super stressed before the call, a bit intimated, but now I'm even more motivated to work on it! A litle tired though.
 
@@ -67,5 +67,20 @@ Decisions:
 - Annotation tool: CSV
 
 Next steps:
-- Follow-up mail if more questions show (Already have some, model choice, mediapipe why? clarify fine-tuning, Julie's script for automatic count of signers)
+- Follow-up mail if more questions show (Already have some, model choice, mediapipe why? clarify fine-tuning, B Julie's script for automatic count of signers)
 - Write annotation methodology
+
+# 02.06.2026
+
+Protocol v1 complete: data/annotation_protocol.md
+- to avoid confirmation bias, we'll take the count of interpreters as a real output
+- we'll do a full pass to build gallery, which will be frozen for cross-annotation and valid kappa
+
+Decisions:
+- Go with manual annotation, then automatic pipeline that we'll be able to test on the newly annotated dataset
+- The gallery will be in the data folder which is ignored in .gitignore because we want to keep interpreters' privacy
+
+Next steps:
+- Build the gallery in data/Interpreter_gallery for next week
+
+Mental state: Realizing how rigorous you have to be in research.
