@@ -84,8 +84,12 @@ Created the playlist with the list Ouakrim shared: https://www.youtube.com/watch
 
 Checked again Lascar's Github, the crop part looks usable of the following script: https://github.com/JulieLascar/Matignon-LSF/blob/main/collecting_data/Downloading%20the%20videos%2C%20audio%2C%20and%20subtitles%20-%20Cropping%20the%20interpreter.ipynb
 However, we'll have to find another solution for downloading the videos since pytube, yt-dl are not maintained anymore. Also, Youtube API doesn't allow it either since it's against their terms and conditions. 
+It seems that yt-dlp works, see scripts/download.py
 
 Next steps:
+- Crop the videos
 - Build the gallery in data/Interpreter_gallery for next week
 
 Mental state: Realizing how rigorous you have to be in research.
+
+
