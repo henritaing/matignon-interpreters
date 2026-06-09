@@ -93,3 +93,12 @@ Next steps:
 Mental state: Realizing how rigorous you have to be in research.
 
 
+# 09.06.2026
+
+- Downloaded all the videos
+- Used the cropping video algorith from Matignon-LSF, seems to work well. I ran it here and there, but it burns my laptop (it's an old laptop). I need to do it gradually. I added a loop just to avoid recropping videos already cropped, though it doesn't help with corrupted videos (mostly due to the fact that I stop the process when my pc gets too hot).
+
+Next steps:
+- Continue cropping the videos!
+
+Mental state: Struggling to find time to run the cropping script and also lots of work so can't focus on the side-project.
