@@ -102,3 +102,14 @@ Next steps:
 - Continue cropping the videos!
 
 Mental state: Struggling to find time to run the cropping script and also lots of work so can't focus on the side-project.
+
+
+# 12.06.2026
+
+- Finally cropped everything!!!
+- Currently working on building the interpreter gallery, more difficult than what I expected. I found myself hesitating multiple times with the hairstyle and clothes change.
+
+Next steps:
+- Finish building the gallery in data/Interpreter_gallery
+
+Mental state: Feeling like I'm making progress

@@ -30,7 +30,7 @@ def crop_video(filename, out_filename, x0, x1, y0, y1, visualize=False):
     out.release()
     return frame_count
 
-root_path = "data/download_videos"
+root_path = "data"
 
 for file in os.listdir(root_path+'/videos/'):
     outfilename = (root_path+'/cropped_videos/'+file).replace(".mp4", "_cropped.mp4")

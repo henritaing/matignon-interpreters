@@ -15,7 +15,7 @@ Training Process: The second annotator undergoes a 30-min training session where
 
 3. Gallery construction
 
-A fast pass over all 67 videos is done to identify every distinct interpreter and create a frozen gallery with fixed IDs and fixed PNG references. This gallery is found in the folder called *data/Interpreter_gallery*. After the pass, the gallery is reviewed for duplicate/merged IDs by the second annotator. The count of interpreters found in the gallery pass is compared against Halbout's reported count as a sanity check, discrepancies are examined.
+A fast pass over all 67 videos is done to identify every distinct interpreter and create a frozen gallery with fixed IDs and fixed PNG references. This gallery is found in the folder called *data/Interpreter_gallery* which will stay private to respect interpreters' privacy. After the pass, the gallery is reviewed for duplicate/merged IDs by the second annotator. The count of interpreters found in the gallery pass is compared against Halbout's reported count as a sanity check, discrepancies are examined.
 
 4. Annotation Guidelines & Schema
 
