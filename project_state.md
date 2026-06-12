@@ -106,10 +106,11 @@ Mental state: Struggling to find time to run the cropping script and also lots o
 
 # 12.06.2026
 
-- Finally cropped everything!!!
+- Finally cropped everything!!! -> I thought I did, but actually many files were corrupted and some were incomplete due to the interruption of the script to charge the latop. After checking each video length and name, had to delete a few and now recropping them...
 - Currently working on building the interpreter gallery, more difficult than what I expected. I found myself hesitating multiple times with the hairstyle and clothes change.
 
 Next steps:
+- Finish cropping
 - Finish building the gallery in data/Interpreter_gallery
 
-Mental state: Feeling like I'm making progress
+Mental state: Feeling like I'm making progress, but realizing that some videos were cut short or corrupted, urgh
