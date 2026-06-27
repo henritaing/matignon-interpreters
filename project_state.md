@@ -114,3 +114,7 @@ Next steps:
 - Finish building the gallery in data/Interpreter_gallery
 
 Mental state: Feeling like I'm making progress, but realizing that some videos were cut short or corrupted, urgh
+
+## 27.06.2026
+
+Just back from vacation, finally had time to complete the cropping!!! Even started building the gallery!
