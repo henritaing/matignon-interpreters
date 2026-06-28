@@ -20,7 +20,7 @@ A fast pass over all 67 videos is done to identify every distinct interpreter an
 4. Annotation Guidelines & Schema
 
 Annotation Task: The goal of the task is to segment videos and assign to each segment an interpreter. 
-Labeling Tool: The annotation process is conducted using a single CSV called *Annotation_results.csv*.
+Labeling Tool: The annotation process is conducted using a single Google Sheets "Annotation_results" that we'll later export as a CSV, *Annotation_results.csv*.
 
 Using the frozen gallery, annotators assign labels based on the following column names:
 VideoID (List of IDs is provided in the Matignon-LSF_video_list.csv from Ouakrim), SegmentIndex (S_Number), Start of Segment (MM:SS), End of Segment (MM:SS), Uncertainty_Flag_Segment (Y/N), Interpreter_Number, Uncertainty_Flag_Interpreter (Y/N), Comments (Free text), Annotator (A/B for cross-annotation)

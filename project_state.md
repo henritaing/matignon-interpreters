@@ -118,3 +118,12 @@ Mental state: Feeling like I'm making progress, but realizing that some videos w
 ## 27.06.2026
 
 Just back from vacation, finally had time to complete the cropping!!! Even started building the gallery!
+
+
+## 28.06.2026
+
+Completed the gallery. I kid you not, I sometimes needed help from my brother. It's hard with hairstyle changes, lighting and the low resolution. Tracked my progress with a Google Sheets, with the following columns:
+id	name	title	date	duration	Done?
+The duration helped me verify if all videos were correctly downloaded and cropped.
+
+Edited the annotation document just to mention that we'll write down our results in Google Sheets before exporting it into CSV.
