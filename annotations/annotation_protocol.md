@@ -27,13 +27,13 @@ Transition starts when the interpreter goes out the frame and continue until the
 
 Annotation Task: The goal of the task is to segment videos and assign to each segment an interpreter. 
 Labeling Tool: The annotation process is conducted using a single Google Sheets "Annotation_results" that we'll later export as a CSV, *Annotation_results.csv*. Its columns are:
-VideoID (List of IDs is provided in the Matignon-LSF_video_list.csv from Ouakrim), SegmentIndex (S_Number), Start of Segment (MM:SS), End of Segment (MM:SS), Transition Start (MM:SS), Transition End (MM:SS), Interpreter_Number_Annotator_A, Uncertainty_Flag_Interpreter_Annotator_A (Y/N), Interpreter_Number_Annotator_B, Uncertainty_Flag_Interpreter_Annotator_B (Y/N), Comments (Free text)
+VideoID (List of IDs is provided in the Matignon-LSF_video_list.csv from Ouakrim), SegmentIndex (S_Number), Segment Start (MM:SS), Segment End (MM:SS), Transition Start (MM:SS), Transition End (MM:SS), Interpreter_#_A, Uncertainty_Flag_A (Y/N), Interpreter_#_B, Uncertainty_Flag_B (Y/N), Comments (Free text)
 
 Using the frozen gallery and frozen segments, annotators assign labels in either Interpreter_Number_Annotator_A or Interpreter_Number_Annotator_B.
 
 Edge Cases: Ambiguous cases are handled according to these specific rules:
 - If there's a doubt on interpreter, each annotator writes 0 in their own column and raises their own uncertainty flag.
-- If the face is not in the gallery, each annotator writes New_* in their own column and raises their own uncertainty flag. It is parked during annotation, adjudicated after the full pass, and splits are built only on resolved labels.
+- If the face is not in the gallery, each annotator writes New_# in their own column and raises their own uncertainty flag. It is parked during annotation, adjudicated after the full pass, and splits are built only on resolved labels.
 
 6. Quality Control
 
