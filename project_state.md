@@ -126,4 +126,14 @@ Completed the gallery. I kid you not, I sometimes needed help from my brother. I
 id	name	title	date	duration	Done?
 The duration helped me verify if all videos were correctly downloaded and cropped.
 
-Edited the annotation document just to mention that we'll write down our results in Google Sheets before exporting it into CSV.
+Decisions:
+- Write down results in Google Sheets before exporting it to CSV
+- Segments are interpreter turns not movement bursts, presence anchor with a face-visible stop
+- Transitions are recorded as windows and excluded before training
+- The segments boundaries will be fixed in a first pass I'll make then labeled in another so kappa is computable
+- Kappa will be over resolved IDs
+- Added New_* as distinct uncertainty path, New_* parked then adjudicated before splitting
+
+Next step:
+- First pass for segmentation
+- Annotation of the interpreters
