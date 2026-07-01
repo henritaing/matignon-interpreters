@@ -137,3 +137,11 @@ Decisions:
 Next step:
 - First pass for segmentation
 - Annotation of the interpreters
+
+## 01.07.2026
+
+Finished segmentation and annotation of the interpreters, took me around 6h of focus (2h yesterday and 4h today) for the 37h of videos. It resulted in 242 segments. It was easier than expected but also longer than expected.
+
+I didn't raise any uncertainty flag, neither used New_*. We'll see during the cross-annotation how it is.
+
+Mental state: exhausted and tired eyes. There were also moments where I felt doubts on whether or not what I'm doing will be useful. My way to cope with this is to just accept the possibility of it being useless, but still a good learning experience.
