@@ -145,3 +145,19 @@ Finished segmentation and annotation of the interpreters, took me around 6h of f
 I didn't raise any uncertainty flag, neither used New_*. We'll see during the cross-annotation how it is.
 
 Mental state: exhausted and tired eyes. There were also moments where I felt doubts on whether or not what I'm doing will be useful. My way to cope with this is to just accept the possibility of it being useless, but still a good learning experience.
+
+## 08.07.2026
+
+Experimenting with automation now that I've manually annotated the dataset.
+
+This is the pipeline I have in mind for temporal video segmentation via blank (white/gray) handoff detection below.
+
+For each video in the data/cropped_videos directory, I will:
+1. Identify blank frames in the video (frames that are mostly white or gray). -> Drafted first version, blank.py
+2. Return segments of the video between these blank frames and estimated transition times.
+3. Save the tuple of timestamps as a csv file in the same directory as the video.
+
+In order to have the best result, I will adjust cropping manually. Some of the cropped videos were a little off.
+
+Next steps:
+- Improve blank.py to get a transition time, ignore start and end peaks, adjust blankness threshold.
