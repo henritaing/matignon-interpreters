@@ -1,3 +1,5 @@
+'''Crop videos to only keep the square with the interpreter in the center.'''
+
 import cv2
 import matplotlib.pyplot as plt
 from IPython.display import clear_output

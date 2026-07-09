@@ -37,7 +37,7 @@ Edge Cases: Ambiguous cases are handled according to these specific rules:
 
 6. Quality Control
 
-Annotation Overlap: To ensure reliability, 13 random videos (around 20% of the dataset) with a fixed seed are cross-annotated by 2 independent annotators using the same frozen interpreter gallery. 
+Annotation Overlap: To ensure reliability, 48 random segments (around 20% of the dataset) with a fixed seed are cross-annotated by 2 independent annotators using the same frozen interpreter gallery. 
 
 Inter-Annotator Agreement (IAA): Agreement is measured using Cohen's Kappa, over the segments where both committed to a real ID.
 

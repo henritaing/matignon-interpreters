@@ -1,3 +1,5 @@
+'''Download videos from a YouTube playlist using yt-dlp.'''
+
 import os
 import yt_dlp
 

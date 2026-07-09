@@ -1,3 +1,5 @@
+'''Detect blank frames in a video using HSV color space.'''
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt

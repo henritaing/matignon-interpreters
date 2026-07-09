@@ -161,3 +161,10 @@ In order to have the best result, I will adjust cropping manually. Some of the c
 
 Next steps:
 - Improve blank.py to get a transition time, ignore start and end peaks, adjust blankness threshold.
+
+## 09.07.2026
+
+Added comments to the scripts to describe their purposes and created randomsample.py to extract the random sample for cross-annotation.
+
+Mental state:
+- Tired from the heat and work and driving.
