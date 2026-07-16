@@ -181,3 +181,6 @@ Decisions:
 
 Mental state:
 - Super happy about the result, my logic seems to work fine!
+
+Next steps:
+- Go through each video to see if cropping needs to be adjusted
