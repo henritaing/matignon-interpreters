@@ -168,3 +168,16 @@ Added comments to the scripts to describe their purposes and created randomsampl
 
 Mental state:
 - Tired from the heat and work and driving.
+
+## 16.07.2026
+
+Decisions:
+- Completed blank.py
+  - First transition always starts after 5 minutes so we can skip this part. It also removes the appearance of outliers.
+  - Sampling every 15 frames since during annotation, precision is +- 0.5 second
+  - Temporary threshold = 0.6 based on tests through plots of videos analysis
+  - Max Gap to merge transition timestamps = 4 seconds as I haven't seen any transitions lasting more than 3 seconds
+  - Decided to take last sampling point +0.5 sec as the transition end
+
+Mental state:
+- Super happy about the result, my logic seems to work fine!
