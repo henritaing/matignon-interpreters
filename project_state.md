@@ -184,3 +184,12 @@ Mental state:
 
 Next steps:
 - Go through each video to see if cropping needs to be adjusted
+
+## 23.07.2026
+
+After discussing with my friend, Clement, the way to go for face recognition was clearer.
+- Find an open-source face recognition model
+- Implement it
+- Test it
+
+Identified videos that might need additional cropping to avoid impact on blankness.py. Makes me think about what my friend suggested to crop, instead of a hard-value-coded window, we could have a model recognizing the face and drawing a square around it and keep that frame.
