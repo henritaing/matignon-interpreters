@@ -206,10 +206,21 @@ Videos needing additional cropping:
 ## 21.08.2026
 
 Had another super interesting convo with Clement. Since SLT models for LSF aren't easily found, we could simplify the problem by finding another ML task to put our datasets to the test. His suggestion is to take subtitles and find themes for each segment and then evaluate the model on their capability to find the theme and perhaps find a bias on the interpreter.
--> Created quickly the script for downloading the subtitles. Will dive into this later.
+-> Created quickly the script for downloading the subtitles. The following videos appear to not have subtitles :c.
+ID	Date
+3TEX9ruhaXo	18 octobre 2023
+H448NJiwMRI	13 septembre 2023
+hegyfM0YipI	13 juillet 2023
+K7WqKupeGVk	20 septembre 2023
+-LhfYZ1ihpI	6 septembre 2023
+_PJ2xR9-o94	5 juillet 2023
+pyC6EXZ449c	30 août 2023
+qVYiLFZojws	11 octobre 2023
+-sgE2QHsskA	21 juin 2023
+vlNNOM4i3Q0	21 juillet 2023
 
-Created the splits, easier than expected.
+Created the splits, easier than expected. But then, I found out that some videos didn't have subtitles (point above), crap. I need to make a decision, either I generate subtitles for the missing videos or I'll have to remove the videos and their associated segments from the splits.
 
-Also went through the annotations last week and derived a few more characteristics for the dataset. It felt pretty nice. Though too simple for being enough to propose it as "research advancement".
+Anyways, also went through the annotations last week and derived a few more characteristics for the dataset. It felt pretty nice. Though too simple for being enough to propose it as "research advancement".
 
 
