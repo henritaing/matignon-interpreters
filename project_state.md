@@ -193,3 +193,19 @@ After discussing with my friend, Clement, the way to go for face recognition was
 - Test it
 
 Identified videos that might need additional cropping to avoid impact on blankness.py. Makes me think about what my friend suggested to crop, instead of a hard-value-coded window, we could have a model recognizing the face and drawing a square around it and keep that frame.
+
+Videos needing additional cropping:
+- 1AjRdJ5d_Ww, Compte rendu du Conseil des ministres du 21 décembre 2020.
+- 1MHphyCtLLE, Compte rendu du Conseil des ministres du 16 décembre 2020.
+- aTtX70EXGVo, Conférence de presse du Premier ministre Jean Castex à l'issue du Conseil des ministres
+- CDsP8gaVGbg, Compte rendu du Conseil des ministres du 27 janvier 2021.
+- CxgdUjywiDE, Compte rendu du Conseil des ministres du 2 décembre 2020
+- dGxmroECIlU, Compte rendu du Conseil des ministres du 6 janvier 2021.
+- Vyl8jrHGA6k, Compte rendu du Conseil des ministres du 3 février 2021.
+
+## 15.08.2026
+
+
+
+
+
