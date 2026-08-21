@@ -27,7 +27,7 @@ Transition starts when the interpreter goes out the frame and continue until the
 
 Annotation Task: The goal of the task is to segment videos and assign to each segment an interpreter. 
 Labeling Tool: The annotation process is conducted using a single Google Sheets "Annotation_results" that we'll later export as a CSV, *Annotation_results.csv*. Its columns are:
-VideoID (List of IDs is provided in the Matignon-LSF_video_list.csv from Ouakrim), SegmentIndex (S_Number), Segment Start (MM:SS), Segment End (MM:SS), Transition Start (MM:SS), Transition End (MM:SS), Interpreter_#_A, Uncertainty_Flag_A (Y/N), Interpreter_#_B, Uncertainty_Flag_B (Y/N), Comments (Free text)
+VideoID (List of IDs is provided in the Matignon-LSF_video_list.csv from Ouakrim), SegmentIndex, Segment Start (HH:MM:SS:000), Segment End (HH:MM:SS:000), Transition Start (HH:MM:SS:000), Transition End (HH:MM:SS:000), Interpreter_#_A, Uncertainty_Flag_A (Y/N), Interpreter_#_B, Uncertainty_Flag_B (Y/N), Comments (Free text)
 
 Using the frozen gallery and frozen segments, annotators assign labels in either Interpreter_Number_Annotator_A or Interpreter_Number_Annotator_B.
 
@@ -45,11 +45,16 @@ Conflict Resolution: Disagreements are resolved through adjudication. If no cons
 
 Validation strategy: TBD, must remain interpreter-disjoint from train and test for the canonical split
 
-7. From annotation to splits (TBD)
+7. From annotation to splits
 
 Interpreter sets are disjoint because transitions and unresolved labels are removed before split construction.
 
 The dataset is divided into multiple splits.
-- Split 1: Training set with interpreter_1 (as many segments as possible), test set with 1 other interpreter
-- Split 2: Training set with interpreter_1 (as many segments as possible), test with same interpreter, interpreter_1
+- For evaluation A: Training set with interpreter_3 (split1.csv), test set with interpreter_5 (split2.csv)
+- For evaluation B: Training set with interpreter_3 (split1.csv), test with same interpreter, interpreter_3 (split1.csv)
+- For evaluation C : Training set with all but one interpreter, interpreter_3 (split3.csv), test on the held-out interpreter_3 (split1.csv)
 
+These splits are CSV documents. Each file has the following columns:
+Video_ID, Segment_Index, Segment Start, Segment End, Interpreter_ID
+
+Anyone who wants to use the dataset downloads the videos via yt-dlp from your playlist and extracts clips with ffmpeg -ss <start> -to <end>. 

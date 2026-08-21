@@ -203,9 +203,13 @@ Videos needing additional cropping:
 - dGxmroECIlU, Compte rendu du Conseil des ministres du 6 janvier 2021.
 - Vyl8jrHGA6k, Compte rendu du Conseil des ministres du 3 février 2021.
 
-## 15.08.2026
+## 21.08.2026
 
+Had another super interesting convo with Clement. Since SLT models for LSF aren't easily found, we could simplify the problem by finding another ML task to put our datasets to the test. His suggestion is to take subtitles and find themes for each segment and then evaluate the model on their capability to find the theme and perhaps find a bias on the interpreter.
+-> Created quickly the script for downloading the subtitles. Will dive into this later.
 
+Created the splits, easier than expected.
 
+Also went through the annotations last week and derived a few more characteristics for the dataset. It felt pretty nice. Though too simple for being enough to propose it as "research advancement".
 
 
