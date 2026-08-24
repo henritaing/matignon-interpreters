@@ -51,7 +51,7 @@ Interpreter sets are disjoint because transitions and unresolved labels are remo
 
 The dataset is divided into multiple splits.
 - For evaluation A: Training set with interpreter_3 (split1.csv), test set with interpreter_5 (split2.csv)
-- For evaluation B: Training set with interpreter_3 (split1.csv), test with same interpreter, interpreter_3 (split1.csv)
+- For evaluation B: Training set with interpreter_3 subset which is the first 20 segments (split1_subset.csv), test with same interpreter full set, interpreter_3 (split1.csv)
 - For evaluation C : Training set with all but one interpreter, interpreter_3 (split3.csv), test on the held-out interpreter_3 (split1.csv)
 
 These splits are CSV documents. Each file has the following columns:
