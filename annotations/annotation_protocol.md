@@ -51,10 +51,17 @@ Interpreter sets are disjoint because transitions and unresolved labels are remo
 
 The dataset is divided into multiple splits.
 - For evaluation A: Training set with interpreter_3 (split1.csv), test set with interpreter_5 (split2.csv)
-- For evaluation B: Training set with interpreter_3 subset which is the first 20 segments (split1_subset.csv), test with same interpreter full set, interpreter_3 (split1.csv)
+- For evaluation B: Training set with interpreter_3 subset which is the first 15 segments (split1_subset.csv), test with same interpreter except the first 15 segments, interpreter_3 (split1.csv)
 - For evaluation C : Training set with all but one interpreter, interpreter_3 (split3.csv), test on the held-out interpreter_3 (split1.csv)
 
 These splits are CSV documents. Each file has the following columns:
 Video_ID, Segment_Index, Segment Start, Segment End, Interpreter_ID
 
 Anyone who wants to use the dataset downloads the videos via yt-dlp from your playlist and extracts clips with ffmpeg -ss <start> -to <end>. 
+
+| Split | Number of segments | Total time |
+| :----------- | :----------- | :----------- |
+| Split1_subset | 15 | 2h23 |
+| Split1 | 42 | 6h54 |
+| Split2 | 59 | 9h42 |
+| Split3 | 185 | 30h51 |
