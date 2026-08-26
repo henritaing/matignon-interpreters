@@ -240,6 +240,5 @@ Honest self-assessment after 3 months:
 - Statistical analysis of the dataset: done, pending IAA revision
 - Mid-project deliverable: annotations csv file not yet completed, needs IAA.
 
-
-
+Corrected randomsample.py, I wasn't even using the seed lmao.
 
