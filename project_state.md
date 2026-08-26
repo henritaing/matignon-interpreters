@@ -242,3 +242,43 @@ Honest self-assessment after 3 months:
 
 Corrected randomsample.py, I wasn't even using the seed lmao.
 
+## 26.08.2026
+
+Clement was kind enough to do the cross-annotation. There was a little confusion in the methodology but it was solved. Only 1 row out of the 48 was uncertain and we agreed on the interpreter, so it's ok.
+=> Mid-project deliverable finally complete! 
+=> No need to modify the splits
+=> Statistical analysis not impacted
+
+Thought more about how we classify the segments into themes.
+
+### Proposed label themes so that the llm classifies the segments.
+
+Scope column is intended to be used verbatim as the class definition in LLM prompts and as the embedded text for the orthogonality check.
+ 
+| # | Label | Scope |
+|---|---|---|
+| 1 | `institutions_et_nominations` | Mesures d'ordre individuel, nominations préfets/recteurs/ambassadeurs, fonctionnement du Gouvernement, séminaire gouvernemental, ordre du jour, réforme de l'État, fonction publique |
+| 2 | `economie_et_finances` | Budget, fiscalité, dette, entreprises, industrie, commerce extérieur, douanes, marchés financiers, droit des sociétés, inflation, consommation |
+| 3 | `travail_et_protection_sociale` | Emploi, salaires, négociation collective, retraites, prestations sociales, familles, handicap, pauvreté, logement social |
+| 4 | `sante` | Hôpital, soins, médicaments, épidémies, santé publique, addictions, santé mentale |
+| 5 | `education_et_recherche` | École, rentrée scolaire, enseignants, élèves, université, recherche, jeunesse, formation |
+| 6 | `justice_et_securite_interieure` | Police, gendarmerie, terrorisme, délinquance, prisons, procédure pénale, immigration, ordre public |
+| 7 | `defense_et_international` | Armées, opérations extérieures, OTAN, Union européenne, diplomatie, traités, conflits, aide au développement |
+| 8 | `environnement_et_agriculture` | Climat, biodiversité, eau, feux de forêt, énergie, transition écologique, agriculture, pêche, alimentation |
+| 9 | `territoires_et_infrastructures` | Collectivités, outre-mer, ruralité, transports, réseaux, aménagement, logement (construction), numérique/infrastructure |
+| — | `autre` | Culture, sport, médias, laïcité, mémoire, commentaire politique hors agenda |
+ 
+### Collision tie-breakers (annotation guideline)
+
+Since the themes aren't perfectly orthogonal to each other, here's how to determine which one to choose for the llm:
+
+| Pair | Rule |
+|---|---|
+| `economie` ↔ `travail` | Actor = entreprise / finances publiques → `economie`. Actor = salarié / allocataire → `travail` |
+| `economie` ↔ `environnement` | Instrument = fiscal / industriel → `economie`. Instrument = norme écologique → `environnement` |
+| `justice_securite` ↔ `defense_international` | Threat on national territory → `justice_securite`. Extraterritorial / interstate → `defense_international` |
+| `travail` ↔ `sante` | Care system / patient → `sante`. Employment status of caregivers → `travail` |
+| `environnement` ↔ `territoires` | Ecological objective → `environnement`. Infrastructure / service delivery → `territoires` |
+| any ↔ `institutions` | `institutions` only when the *subject* is state machinery, not when a domain text happens to be a decree |
+ 
+General rule: a CDM segment is legal-administrative discourse *about* a domain. Label the domain, not the instrument. "Projet de loi" / "ordonnance" vocabulary is not evidence for any class.
