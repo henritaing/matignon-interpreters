@@ -250,7 +250,6 @@ Clement was kind enough to do the cross-annotation. There was a little confusion
 => Statistical analysis not impacted
 
 Thought more about how we classify the segments into themes.
-
 ### Proposed label themes so that the llm classifies the segments.
 
 Scope column is intended to be used verbatim as the class definition in LLM prompts and as the embedded text for the orthogonality check.
