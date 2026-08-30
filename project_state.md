@@ -281,3 +281,10 @@ Since the themes aren't perfectly orthogonal to each other, here's how to determ
 | any ↔ `institutions` | `institutions` only when the *subject* is state machinery, not when a domain text happens to be a decree |
  
 General rule: a CDM segment is legal-administrative discourse *about* a domain. Label the domain, not the instrument. "Projet de loi" / "ordonnance" vocabulary is not evidence for any class.
+
+## 30.08.2026
+
+Had a call to update Ouakrim to update him on my progress.
+He suggested using mediapipe pose recognition for processing the videos, considering my technical constraints. He also suggested to take a subset of the split for the ML task to avoid having to process 3h of videos. It should be fine as long as it's explained.
+
+Next ste

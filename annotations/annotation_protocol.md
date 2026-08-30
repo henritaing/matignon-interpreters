@@ -11,7 +11,7 @@ Preprocessing Steps: Prior to annotation, the data is preprocessed by cropping t
 
 Annotator Demographics: The annotation team consists of 2 individuals (including me). The second annotator is a French PhD student. He isn't deaf and doesn't know sign language.
 
-Training Process: The second annotator undergoes a 30-min training session where she reviews the annotation guidelines and has a demo during which I demonstrate the annotation process on 10 segments.
+Training Process: The second annotator undergoes a 30-min training session where he reviews the annotation guidelines and has a demo during which I demonstrate the annotation process on 10 segments.
 
 3. Gallery construction
 
