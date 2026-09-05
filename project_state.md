@@ -287,4 +287,31 @@ General rule: a CDM segment is legal-administrative discourse *about* a domain. 
 Had a call to update Ouakrim to update him on my progress.
 He suggested using mediapipe pose recognition for processing the videos, considering my technical constraints. He also suggested to take a subset of the split for the ML task to avoid having to process 3h of videos. It should be fine as long as it's explained.
 
-Next ste
+## 05.09.2026
+
+After some thinking and evaluating my priorities, I decided to try to finish the project as fast as possible.
+
+Decisions taken:
+- 1 single experience, train on subset of interpreter3 (SplitA) then evaluate on set of interpreter3 without the segments already used (SplitB) and set of interpreter5 (SplitC)
+- Use of 2-min windows to divide better the segments to grasp the themes better
+- Merge classes as much as possible to avoid having empty classes. 
+
+New list:
+
+| # | Label | Scope |
+|---|---|---|
+| 1 | `institutions_gouvernementales_et_relations_extérieures` | Mesures d'ordre individuel, nominations préfets/recteurs/ambassadeurs, fonctionnement du Gouvernement, séminaire gouvernemental, ordre du jour, réforme de l'État, fonction publique, opérations extérieures, Union européenne, diplomatie, traités, aide au développement |
+| 2 | `économie` | Budget, fiscalité, dette, entreprises, industrie, commerce extérieur, douanes, marchés financiers, droit des sociétés, inflation, consommation, emploi, salaires, négociation collective, retraites |
+| 3 | `social_et_santé` | Prestations sociales, familles, handicap, pauvreté, logement social, hôpital, soins, médicaments, épidémies, santé publique, addictions, santé mentale |
+| 4 | `education_et_recherche` | École, rentrée scolaire, enseignants, élèves, université, recherche, jeunesse, formation |
+| 5 | `sécurité` | Police, gendarmerie, terrorisme, délinquance, prisons, procédure pénale, immigration, ordre public, defense_et_international, OTAN, conflits |
+| 6 | `environnement_et_territoires` | Climat, biodiversité, eau, feux de forêt, énergie, transition écologique, agriculture, pêche, alimentation, collectivités, outre-mer, ruralité, transports, réseaux, aménagement, logement (construction), numérique/infrastructure |
+| — | `autre` | Culture, sport, médias, laïcité, mémoire |
+
+New tie-breakers
+| Pair | Rule |
+|---|---|
+| `économie` ↔ `social_et_santé` | Acteur = allocataire → `social_et_santé`, patient / personnel soignant → `social_et_santé`|
+| `économie` ↔ `environnement` | Instrument = fiscal / industriel → `economie`. Instrument = norme écologique → `environnement` |
+| any ↔ `diplomatie_politique` | `diplomatie_politique` s'il s'agit d'un processus étatique |
+ 
