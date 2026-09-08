@@ -315,3 +315,30 @@ New tie-breakers
 | `économie` ↔ `environnement` | Instrument = fiscal / industriel → `economie`. Instrument = norme écologique → `environnement` |
 | any ↔ `diplomatie_politique` | `diplomatie_politique` s'il s'agit d'un processus étatique |
  
+ ## 08.09.2026
+
+Progress status:
+ - The list of themes has been refined and new details have been added to the tie-breakers, this can be found in the prompt.
+ - I created a general prompt with the help of Claude for the classification.
+ - Added the splits in data/splits/
+ - Clarified the approach for the theme classification
+
+ Approach:
+1. Read the split csv file
+2. Slice each segment into 2 mins window
+  2a. The subtitles files come in two formats. We need to parse the timestamps accordingly.
+  2b. With the timestamps parsed, we can window the segments text.
+3. Send the text to call Claude to classify and write the output into a .csv file.
+
+Tried to use Claude to help me more, it made a single big file, but I split it because I prefer having multiple modules for clarity. 
+And now I'm stuck reviewing each script line by line.
+
+Review progress:
+- prompt_theme_v1.txt, OK, reviewed the list and tie-breakers
+- README.md, OK, can serve as a quick overview
+- config.py, OK, nothing much to say, just fixed the naming
+- timestamps.py, OK
+- windowing.py
+- subtitles.py 
+- claude_api.py
+- classifywindows.py
