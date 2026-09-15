@@ -12,7 +12,7 @@ ydl_opts = {
     "skip_download": True,
     "writesubtitles": True,
     "writeautomaticsub": True,
-    "subtitleslangs": ["fr"],
+    "subtitleslangs": ["fr", "fr-FR"],
     "subtitlesformat": "srt",
     "outtmpl": f"{OUTPUT_DIR}/%(id)s_clip_subtitles.%(ext)s",
     "ignoreerrors": True,

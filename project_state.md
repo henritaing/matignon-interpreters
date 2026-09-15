@@ -342,3 +342,31 @@ Review progress:
 - subtitles.py 
 - claude_api.py
 - classifywindows.py
+
+## 15.09.2026
+
+Was thinking again about the scripts for timestamps and windowing. What if I could have one single format instead of having subtitles and transcript? I feel like having two formats adds an additional unncessary divide, especially since I can see that the videos have subtitles.
+
+List of videos which I couldn't initially get the subtitles from:
+- _PJ2xR9-o94
+- -LhfYZ1ihpI
+- 3TEX9ruhaXo
+- H448NJiwMRI
+- hegyfM0YipI
+- K7WqKupeGVk
+- pyC6EXZ449c
+- qVYiLFZojws
+- vlNNOM4i3Q0
+
+Found them! Tested it in a script that I deleted after.
+It appears that the available subtitles were actually in "fr-FR" and not "fr".
+Checked that in scripts/ with one of the videos:
+python -m yt_dlp --list-subs "https://www.youtube.com/watch?v=*VIDEO_ID*"
+
+=> Added fr-FR to the subtitleslangs list in download_subtitles.
+
+I feel stupid now, I should've had my senses tingling. :c
+
+Was able to remove some parts of of subtitles.py, timestamps.py, windowing.py in the initial review.
+
+I need to take a break after that.

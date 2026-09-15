@@ -29,7 +29,6 @@ class BuildStats:
     dropped_seconds: float = 0.0
     kept_seconds: float = 0.0
     empty_windows: int = 0
-    formats: dict = field(default_factory=dict)
     file_errors: list = field(default_factory=list)
 
 
@@ -85,13 +84,12 @@ def build_all_windows(df: pd.DataFrame, subtitles_dir: Path) -> tuple[list[Windo
         if video_id not in loaded_subtitles:
             try:
                 path = find_subtitle_file(subtitles_dir, video_id)
-                cues, subtitle_format = parse_subtitles(path)
+                cues = parse_subtitles(path)
             except Exception as exc:  # noqa: BLE001
                 stats.file_errors.append(f"{video_id}: {exc}")
                 loaded_subtitles[video_id] = []
                 continue
             loaded_subtitles[video_id] = cues
-            stats.formats[subtitle_format] = stats.formats.get(subtitle_format, 0) + 1
 
         cues = loaded_subtitles[video_id]
         if not cues:
@@ -116,7 +114,6 @@ def build_all_windows(df: pd.DataFrame, subtitles_dir: Path) -> tuple[list[Windo
 def print_stats(stats: BuildStats, windows: list[Window], split_name: str) -> None:
     total_seconds = stats.kept_seconds + stats.dropped_seconds
     print(f"split {split_name}: {stats.segments} segments -> {len(windows)} windows")
-    print(f"  formats seen        : {stats.formats}")
     print(f"  segments < {WINDOW_SECONDS}s     : {stats.segments_too_short}")
     print(f"  seconds kept        : {stats.kept_seconds:.0f}")
     if total_seconds:
