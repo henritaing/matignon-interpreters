@@ -370,3 +370,9 @@ I feel stupid now, I should've had my senses tingling. :c
 Was able to remove some parts of of subtitles.py, timestamps.py, windowing.py in the initial review.
 
 I need to take a break after that.
+
+## 19.09.2026
+
+Found out that by adding fr-FR to the subtitles, it created duplicates because some videos have the subtitles in "two" versions.
+
+Manually tried out the prompt on a few windows with Haiku 4.5 / Opus 5 / Sonnet 5, doesn't look too bad, all 3 models output the same themes and secondary themes. 
