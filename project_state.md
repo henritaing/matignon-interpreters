@@ -385,7 +385,7 @@ Here are my two conclusions:
 - I don't have enough time / energy / resources to pursue the next step (ML evaluation)
 - I really would like to finish the project to focus on my side projects
 
-So let's try to complete the project.
+New goal: give more parameters to the dataset for later ML tasks.
 
 On the duplicates, I checked, every video that has a .fr.srt also has a .fr-fr.srt or .fr-FR.srt counterpart, oof.
 
