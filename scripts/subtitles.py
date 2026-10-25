@@ -45,11 +45,9 @@ def find_subtitle_file(subtitles_dir: Path, video_id: str) -> Path:
     """Match '<video_id>_clip_subtitles.fr' and near variants, unambiguously."""
     candidates: list[Path] = []
     for pattern in (
-        f"{video_id}_clip_subtitles.fr",
         f"{video_id}_clip_subtitles.fr.srt",
-        f"{video_id}_clip_subtitles.srt",
-        f"{video_id}.srt",
-        f"{video_id}_*",
+        f"{video_id}_clip_subtitles.fr-fr.srt",
+        f"{video_id}_clip_subtitles.fr-FR.srt",
     ):
         candidates.extend(Path(p) for p in glob.glob(str(subtitles_dir / pattern)))
         if candidates:
