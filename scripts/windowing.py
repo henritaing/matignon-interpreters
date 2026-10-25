@@ -39,12 +39,9 @@ def build_windows(
     segment_start: float,
     segment_end: float,
 ) -> tuple[list[Window], float]:
-    """Cut [segment_start, segment_end) into fixed windows. Returns (windows, dropped_seconds).
-
-    A cue is assigned to the window containing its start time, so no cue text is
-    duplicated across windows and boundary-spanning cues are not split.
-    """
+    """Divide the segment into 2-minutes windows. For each window, collect cues that fall within window_start and window_end. Returns (windows, dropped_seconds)."""
     windows: list[Window] = []
+
     num_windows = int((segment_end - segment_start) // WINDOW_SECONDS)
     dropped_seconds = (segment_end - segment_start) - num_windows * WINDOW_SECONDS
     if not DROP_TAIL and dropped_seconds > 0:

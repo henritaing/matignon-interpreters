@@ -376,3 +376,67 @@ I need to take a break after that.
 Found out that by adding fr-FR to the subtitles, it created duplicates because some videos have the subtitles in "two" versions.
 
 Manually tried out the prompt on a few windows with Haiku 4.5 / Opus 5 / Sonnet 5, doesn't look too bad, all 3 models output the same themes and secondary themes. 
+
+## 25.10.2026
+
+Back after a long break. Thought about the project a lot.
+
+Here are my two conclusions:
+- I don't have enough time / energy / resources to pursue the next step (ML evaluation)
+- I really would like to finish the project to focus on my side projects
+
+So let's try to complete the project.
+
+On the duplicates, I checked, every video that has a .fr.srt also has a .fr-fr.srt or .fr-FR.srt counterpart, oof.
+
+Here's the current process flow for myself to wrap my head around the project again:
+main()  [classifywindows.py]
+│
+├─ standardize_columns(df)
+│
+├─ build_all_windows(df, subtitles_dir)  [windowing.py]
+│   │
+│   │  for each CSV row:
+│   ├─ parse_timestamp(segment_start / segment_end)  [timestamps.py]
+│   │
+│   ├─ find_subtitle_file(subtitles_dir, video_id)  [subtitles.py]
+│   │
+│   ├─ parse_subtitles(path)  [subtitles.py]
+│   │   └─ parse_timestamp(start / end)  [timestamps.py]
+│   │
+│   └─ build_windows(cues, ...)  [windowing.py]
+│       └─ returns list[Window], dropped_seconds
+│
+├─ print_stats(stats, windows)  [windowing.py]
+│
+├─ read_prompt_file(path)  [claude_api.py]
+│
+├─ run_classification(windows, ...)  [claude_api.py]
+│   │
+│   ├─ ResultCache(path)  — loads already-done results from disk
+│   │
+│   │  for each window (in parallel threads):
+│   └─ process_window(window, ...)  [claude_api.py]
+│       │
+│       ├─ if len(text) < MIN_CHARS → label "indéterminé" locally
+│       │
+│       ├─ else → ask_claude_to_classify(window)  [claude_api.py]
+│       │           ├─ parse_json_from_reply(reply)
+│       │           └─ validate_api_response(payload)
+│       │
+│       ├─ make_cache_key(window_id, prompt_hash, model)
+│       ├─ format_timestamp(window_start / window_end)  [timestamps.py]
+│       └─ cache.append(row)
+│
+└─ write_output(windows, cache, ...)  [claude_api.py]
+    └─ writes  out/<split>_windows.csv
+
+Review progress:
+- prompt_theme_v1.txt, OK
+- README.md, OK
+- config.py, OK
+- timestamps.py, OK
+- windowing.py, OK
+- subtitles.py, OK 
+- claude_api.py
+- classifywindows.py

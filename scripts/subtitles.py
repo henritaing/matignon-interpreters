@@ -10,6 +10,7 @@ from timestamps import parse_timestamp
 
 @dataclass
 class Cue:
+    '''Example: Cue(start=0.0, end=2.0, text="Hello world")'''
     start: float
     end: float
     text: str
