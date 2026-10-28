@@ -439,7 +439,11 @@ main()  [classifywindows.py]
 - timestamps.py, OK
 - windowing.py, OK
 - subtitles.py, OK 
-- claude_api.py, OK
-- classifywindows.py, OK
+- claude_api.py, not totally sure
+- classifywindows.py, not totally sure
 
--> 
+## 28.10.2026
+
+Moved the unused scripts to the /archives folder, feels bad but it is what it is.
+
+Working on the paper.
