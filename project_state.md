@@ -385,11 +385,12 @@ Here are my two conclusions:
 - I don't have enough time / energy / resources to pursue the next step (ML evaluation)
 - I really would like to finish the project to focus on my side projects
 
-New goal: give more parameters to the dataset for later ML tasks.
+Adjusted goal: give more parameters to the dataset for later ML tasks.
 
-On the duplicates, I checked, every video that has a .fr.srt also has a .fr-fr.srt or .fr-FR.srt counterpart, oof.
+Still spent some time to clean up a bit:
+-> On the duplicates, I checked, every video that has a .fr.srt also has a .fr-fr.srt or .fr-FR.srt counterpart, oof.
 
-Here's the current process flow for myself to wrap my head around the project again:
+-> Here's the current process flow for myself to wrap my head around the project again:
 main()  [classifywindows.py]
 │
 ├─ standardize_columns(df)
@@ -431,12 +432,14 @@ main()  [classifywindows.py]
 └─ write_output(windows, cache, ...)  [claude_api.py]
     └─ writes  out/<split>_windows.csv
 
-Review progress:
+-> Review progress:
 - prompt_theme_v1.txt, OK
 - README.md, OK
 - config.py, OK
 - timestamps.py, OK
 - windowing.py, OK
 - subtitles.py, OK 
-- claude_api.py
-- classifywindows.py
+- claude_api.py, OK
+- classifywindows.py, OK
+
+-> 

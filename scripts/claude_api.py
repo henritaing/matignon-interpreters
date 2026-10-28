@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import hashlib
 import json
 import re
@@ -11,7 +9,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from config import THEMES, VALID_SHARES, MIN_CHARS, MAX_RETRIES
+from config import THEMES, VALID_SHARES, MIN_CHARS, MAX_RETRIES, SHORT_WINDOW_LABEL
 from timestamps import format_timestamp
 from windowing import Window
 
@@ -154,7 +152,7 @@ def process_window(
 ) -> dict:
     if len(window.text) < MIN_CHARS:
         result = {
-            "label": "indéterminé", "rule": None, "dominant_share": "<50%",
+            "label": SHORT_WINDOW_LABEL, "rule": None, "dominant_share": "<50%",
             "boilerplate": False, "runner_up": None, "confidence": None,
             "api_error": None, "input_tokens": 0, "output_tokens": 0,
         }
@@ -163,7 +161,7 @@ def process_window(
     row = {
         "cache_key": make_cache_key(window.window_id, prompt_hash, model),
         "split": split_name,
-        **{k: v for k, v in asdict(window).items() if k != "text"},
+        **{k: v for k, v in asdict(window).items() if k != "text"},  # text is long; omit from output
         "window_start_hms": format_timestamp(window.window_start),
         "window_end_hms": format_timestamp(window.window_end),
         "n_chars": len(window.text),
@@ -212,11 +210,11 @@ def write_output(
     out_dir: Path,
     split_name: str,
 ) -> None:
-    rows = [
-        cache.done[make_cache_key(w.window_id, prompt_hash, model)]
-        for w in windows
-        if make_cache_key(w.window_id, prompt_hash, model) in cache.done
-    ]
+    rows = []
+    for w in windows:
+        key = make_cache_key(w.window_id, prompt_hash, model)
+        if key in cache.done:
+            rows.append(cache.done[key])
     failed = len(windows) - len(rows)
     output_df = pd.DataFrame(rows)
     columns = [

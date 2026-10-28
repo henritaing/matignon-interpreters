@@ -16,7 +16,8 @@ THEMES = {
 VALID_SHARES = {">75%", "50-75%", "<50%"}
 
 # Windows with fewer than this many transcript characters are labelled
-# indéterminé locally, without spending an API call.
+# SHORT_WINDOW_LABEL locally, without spending an API call.
 MIN_CHARS = 120
+SHORT_WINDOW_LABEL = "indéterminé"
 
 MAX_RETRIES = 3
