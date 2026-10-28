@@ -444,6 +444,6 @@ main()  [classifywindows.py]
 
 ## 28.10.2026
 
-Moved the unused scripts to the /archives folder, feels bad but it is what it is.
-
-Working on the paper.
+Following the decision to remove the ML tasks:
+- Moved the unused scripts to the /archives folder, feels bad but it is what it is.
+- Updated the annotation methodology -> No interpreter disjoint splits since we won't be needing them, giving the freedom to any to create their own splits based on the table covering interpreters.

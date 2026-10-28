@@ -12,8 +12,8 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-from claude_api import read_prompt_file, run_classification, write_output
-from windowing import build_all_windows, print_stats
+from archives.claude_api import read_prompt_file, run_classification, write_output
+from archives.windowing import build_all_windows, print_stats
 
 load_dotenv()
 

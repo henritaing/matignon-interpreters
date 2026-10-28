@@ -8,7 +8,7 @@ import pandas as pd
 
 from config import WINDOW_SECONDS, DROP_TAIL, MIN_CHARS
 from subtitles import Cue, find_subtitle_file, parse_subtitles
-from timestamps import parse_timestamp
+from archives.timestamps import parse_timestamp
 
 
 @dataclass

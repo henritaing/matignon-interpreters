@@ -42,26 +42,3 @@ Annotation Overlap: To ensure reliability, 48 random segments (around 20% of the
 Inter-Annotator Agreement (IAA): Agreement is measured using Cohen's Kappa, over the segments where both committed to a real ID.
 
 Conflict Resolution: Disagreements are resolved through adjudication. If no consensus is reached, the segment is excluded and the number and identity of excluded segments are reported.
-
-Validation strategy: TBD, must remain interpreter-disjoint from train and test for the canonical split
-
-7. From annotation to splits
-
-Interpreter sets are disjoint because transitions and unresolved labels are removed before split construction.
-
-The dataset is divided into multiple splits to show that a model trained on one interpreter degrades on an unseen one.
-- Subset of interpreter_3 set which is the first 15 segments (SplitA_subset.csv)
-- Set with interpreter_3 - splitA (SplitB.csv) 
-- Set with interpreter_5 (SplitB.csv)
-
-
-These splits are CSV documents. Each file has the following columns:
-Video_ID, Segment_Index, Segment Start, Segment End, Interpreter_ID
-
-Anyone who wants to use the dataset downloads the videos via yt-dlp from your playlist and extracts clips with ffmpeg -ss <start> -to <end>. 
-
-| Split | Number of segments | Total time |
-| :----------- | :----------- | :----------- |
-| SplitA | 15 | 2h23 |
-| SplitB | 42 | 6h54 |
-| SplitC | 59 | 9h42 |

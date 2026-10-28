@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from timestamps import parse_timestamp
+from archives.timestamps import parse_timestamp
 
 
 @dataclass

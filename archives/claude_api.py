@@ -10,8 +10,8 @@ from pathlib import Path
 import pandas as pd
 
 from config import THEMES, VALID_SHARES, MIN_CHARS, MAX_RETRIES, SHORT_WINDOW_LABEL
-from timestamps import format_timestamp
-from windowing import Window
+from archives.timestamps import format_timestamp
+from archives.windowing import Window
 
 
 # --------------------------------------------------------------------------
