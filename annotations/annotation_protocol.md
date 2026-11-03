@@ -11,17 +11,17 @@ Preprocessing Steps: Prior to annotation, the data is preprocessed by cropping t
 
 Annotator Demographics: The annotation team consists of 2 individuals (including me). The second annotator is a French PhD student. He isn't deaf and doesn't know sign language.
 
-Training Process: The second annotator undergoes a 30-min training session where he reviews the annotation guidelines and has a demo during which I demonstrate the annotation process on 10 segments.
+Training Process: The second annotator undergoes a 1-hour training session where he reviews the annotation guidelines and has a demo during which I demonstrate the annotation process on 10 segments.
 
 3. Gallery construction
 
-A fast pass over all 67 videos is done to identify every distinct interpreter and create a frozen gallery with fixed IDs and fixed PNG references. This gallery is found in the folder called *data/Interpreter_gallery* which stays private to respect interpreters' privacy. After the pass, the gallery is reviewed for duplicate/merged IDs by the second annotator. The count of interpreters found in the gallery pass is compared against Halbout's reported count as a sanity check, discrepancies are examined.
+A fast pass over all 67 videos is done to identify every distinct interpreter and create a frozen gallery with fixed IDs and fixed PNG references. This gallery is found in the folder called *data/Interpreter_gallery* which stays private to respect interpreters' privacy. The count of interpreters found in the gallery pass is compared against Halbout's reported count as a sanity check, discrepancies are examined.
 
 4. Segment construction
 
 To fix the video and transition segments, I fix all segment boundaries and transition windows across all 67 videos.
 
-Transition starts when the interpreter goes out the frame and continue until the new interpreter is settled in the middle of frame with face visible.
+Transition starts when the interpreter goes out of the frame and continues until the new interpreter is settled in the middle of frame with face visible.
 
 5. Annotation Guidelines & Schema
 

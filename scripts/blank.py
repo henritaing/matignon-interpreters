@@ -2,64 +2,71 @@
 
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.signal import argrelmax
 
-def blank_fraction(frame_bgr: np.ndarray, SAT_MAX: int, VAL_MIN: int) -> float:
-    hsv = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2HSV) # use saturation and value to detect blank frames, as they are usually white or gray
-    mask = (hsv[:, :, 1] <= SAT_MAX) & (hsv[:, :, 2] >= VAL_MIN) # 1 is saturation, 2 is value
+SAT_MAX = 30
+VAL_MIN = 200
+SAMPLE_EVERY = 15             # ~2 fps at 30 fps source
+ENTER_STDS_ABOVE_MEAN = 2.0   # how many std above mean to enter blank state
+EXIT_STDS_ABOVE_MEAN = 0.5    # how many std above mean to exit blank state
+MAX_GAP = 4.0                 # transitions don't last longer than 4 seconds
+
+
+def blank_fraction(frame_bgr: np.ndarray) -> float:
+    hsv = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2HSV)
+    mask = (hsv[:, :, 1] <= SAT_MAX) & (hsv[:, :, 2] >= VAL_MIN)
     return float(mask.mean())
 
-filename = r"data\cropped_videos\-sgE2QHsskA_clip_cropped.mp4"
-SAT_MAX, VAL_MIN = 30, 200
-SAMPLE_EVERY = 15  # ~2 fps at 30 fps source
 
-cap = cv2.VideoCapture(filename)
-if not cap.isOpened():                     
-    raise RuntimeError(f"could not open {filename}")
-fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+def find_transitions(filename: str) -> list[list[float]]:
+    """Return a list of [start, end] pairs (in seconds) for each blank transition."""
+    cap = cv2.VideoCapture(filename)
+    if not cap.isOpened():
+        raise RuntimeError(f"could not open {filename}")
+    fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
 
-times, fracs = [], []
-first_frame = ((9000 // SAMPLE_EVERY) + 1) * SAMPLE_EVERY
-cap.set(cv2.CAP_PROP_POS_FRAMES, first_frame) # first 5 minutes are intro and not relevant for blank detection
-i = first_frame
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        break
-    times.append(i / fps)
-    fracs.append(blank_fraction(frame, SAT_MAX, VAL_MIN))
-    i += SAMPLE_EVERY
-    for _ in range(SAMPLE_EVERY - 1):
-        cap.grab()  # advance without decoding; outer read() catches EOF
-cap.release()
+    times, fracs = [], []
+    i = 0
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        times.append(i / fps)
+        fracs.append(blank_fraction(frame))
+        i += SAMPLE_EVERY
+        for _ in range(SAMPLE_EVERY - 1):
+            cap.grab()
+    cap.release()
 
-fracs = np.array(fracs)
-times = np.array(times)
+    fracs_array = np.array(fracs)
+    baseline_mean = fracs_array.mean()
+    baseline_std = fracs_array.std()
+    enter_threshold = baseline_mean + ENTER_STDS_ABOVE_MEAN * baseline_std
+    exit_threshold = baseline_mean + EXIT_STDS_ABOVE_MEAN * baseline_std
 
-threshold = 0.6
-MAX_GAP = 4.0 # transitions don't last longer than 4 seconds, so we can merge close timestamps as they would belong to the same transition
+    in_blank = False
+    blank_timestamps = []
+    for t, frac in zip(times, fracs):
+        if not in_blank and frac > enter_threshold:
+            in_blank = True
+        elif in_blank and frac < exit_threshold:
+            in_blank = False
+        if in_blank:
+            blank_timestamps.append(t)
 
-timestamps = times[fracs > threshold].tolist()
+    transitions = []
+    if blank_timestamps:
+        start = blank_timestamps[0]
+        end = blank_timestamps[0]
+        for t in blank_timestamps[1:]:
+            if t - end > MAX_GAP:
+                transitions.append([start, end + 0.5])
+                start = t
+            end = t
+        transitions.append([start, end + 0.5])
 
-transitions = []
-if timestamps:
-    start = timestamps[0]
-    end = timestamps[0]
-    for t in timestamps[1:]:
-        if t - end > MAX_GAP:
-            transitions.append([start, end + 0.5])
-            start = t
-        end = t
-    transitions.append([start, end + 0.5])
+    return transitions
 
-print(transitions)
 
-# To adjust threshold for blank detection
-# plt.figure(figsize=(14, 3))
-# plt.plot(times, fracs, lw=0.8)
-# for t in (0.7, 0.8, 0.9):
-#     plt.axhline(t, ls="--", lw=0.6, color="r")
-# plt.xlabel("time (s)"); plt.ylabel("blank fraction"); plt.ylim(0, 1)
-# plt.title(f"sat_max={SAT_MAX} val_min={VAL_MIN}")
-# plt.tight_layout(); plt.savefig("blankness2.png", dpi=110)
+if __name__ == "__main__":
+    filename = r"data\cropped_videos\-sgE2QHsskA_clip_cropped.mp4"
+    print(find_transitions(filename))
