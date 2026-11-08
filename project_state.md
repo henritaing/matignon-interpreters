@@ -447,3 +447,17 @@ main()  [classifywindows.py]
 Following the decision to remove the ML tasks:
 - Moved the unused scripts to the /archives folder, feels bad but it is what it is.
 - Updated the annotation methodology -> No interpreter disjoint splits since we won't be needing them, giving the freedom to any to create their own splits based on the table covering interpreters.
+
+## 03.11.2026
+
+While writing my intro, I was wondering what to do with blank.py, because I used it to check if I missed any segments. It wasn't always the best since I hard-coded it, but it helped having a second eye.
+
+After sparring with Claude, here are the improvements made to it:
+- Framed the logic into a reusable function, allowing check_all_blanks.py to import and call it.
+- Replaced the single threshold = 0.6 with two separate thresholds (ENTER_THRESHOLD / EXIT_THRESHOLD) to prevent double-triggering when the signal goes around the threshold
+- Replaced the fixed enter/exit values with thresholds computed per-video from baseline_mean + N * baseline_std to adapt to different background brightness
+- Removed SKIP_SECONDS, because I found some more recent videos where the interepreter changed in the first 3 mins
+
+## 08.11.2026
+
+Added back SKIP_SECONDS = 90, realized while running check_all_blanks.py that the setup part was sometimes mistaken as a transition due to the interpeter not being in frame yet.

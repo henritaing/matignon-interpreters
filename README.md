@@ -5,7 +5,7 @@ Side-project to contribute to existing research on LSF (French Sign Language).
 
 Goals:
 1. Interpreter identification pipeline
-2. Show the bias found in Artiaga EMNLP 2025 on Matignon-LSF
+2. Show the bias found in Artiaga EMNLP 2025 on Matignon-LSF -> Provide dataset for it.
 3. Learn
 
 ## Data

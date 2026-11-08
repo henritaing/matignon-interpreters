@@ -6,6 +6,7 @@ import numpy as np
 SAT_MAX = 30
 VAL_MIN = 200
 SAMPLE_EVERY = 15             # ~2 fps at 30 fps source
+SKIP_SECONDS = 90             # skip opening credits
 ENTER_STDS_ABOVE_MEAN = 2.0   # how many std above mean to enter blank state
 EXIT_STDS_ABOVE_MEAN = 0.5    # how many std above mean to exit blank state
 MAX_GAP = 4.0                 # transitions don't last longer than 4 seconds
@@ -24,8 +25,11 @@ def find_transitions(filename: str) -> list[list[float]]:
         raise RuntimeError(f"could not open {filename}")
     fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
 
+    first_frame = ((int(SKIP_SECONDS * fps) // SAMPLE_EVERY) + 1) * SAMPLE_EVERY
+    cap.set(cv2.CAP_PROP_POS_FRAMES, first_frame)
+
     times, fracs = [], []
-    i = 0
+    i = first_frame
     while True:
         ret, frame = cap.read()
         if not ret:

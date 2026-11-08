@@ -4,7 +4,7 @@
 
 Data Source: The dataset is sourced from Youtube.
 Dataset Size: The dataset consists of 67 videos.
-Sampling Method: Data is sampled using yt-dlp to extract videos.
+Sampling Method: Data is sampled based on the list provided by Yanis Ouakrim.
 Preprocessing Steps: Prior to annotation, the data is preprocessed by cropping the interpreter part of the image using Matignon-LSF cropping script.
 
 2. Annotator Profile and Training
@@ -15,7 +15,7 @@ Training Process: The second annotator undergoes a 1-hour training session where
 
 3. Gallery construction
 
-A fast pass over all 67 videos is done to identify every distinct interpreter and create a frozen gallery with fixed IDs and fixed PNG references. This gallery is found in the folder called *data/Interpreter_gallery* which stays private to respect interpreters' privacy. The count of interpreters found in the gallery pass is compared against Halbout's reported count as a sanity check, discrepancies are examined.
+A fast pass over all 67 videos is done to identify every distinct interpreter and create a frozen gallery with fixed IDs and fixed PNG references. This gallery is found in the folder called *data/Interpreter_gallery* which stays private to respect interpreters' privacy. The count of interpreters found in the gallery pass is compared against Halbout's reported count as a sanity check, discrepancies are examined. 
 
 4. Segment construction
 
@@ -29,11 +29,11 @@ Annotation Task: The goal of the task is to segment videos and assign to each se
 Labeling Tool: The annotation process is conducted using a single Google Sheets "Annotation_results" that we'll later export as a CSV, *Annotation_results.csv*. Its columns are:
 VideoID (List of IDs is provided in the Matignon-LSF_video_list.csv from Ouakrim), SegmentIndex, Segment Start (HH:MM:SS:000), Segment End (HH:MM:SS:000), Transition Start (HH:MM:SS:000), Transition End (HH:MM:SS:000), Interpreter_#_A, Uncertainty_Flag_A (Y/N), Interpreter_#_B, Uncertainty_Flag_B (Y/N), Comments (Free text)
 
-Using the frozen gallery and frozen segments, annotators assign labels in either Interpreter_Number_Annotator_A or Interpreter_Number_Annotator_B.
+Using the frozen gallery and frozen segments, annotators assign labels in either Interpreter_#_A or Interpreter_#_B.
 
 Edge Cases: Ambiguous cases are handled according to these specific rules:
 - If there's a doubt on interpreter, each annotator writes 0 in their own column and raises their own uncertainty flag.
-- If the face is not in the gallery, each annotator writes New_# in their own column and raises their own uncertainty flag. It is parked during annotation, adjudicated after the full pass, and splits are built only on resolved labels.
+- If the face is not in the gallery, each annotator writes New_# in their own column and raises their own uncertainty flag. It is parked during annotation, adjudicated after the full pass.
 
 6. Quality Control
 
