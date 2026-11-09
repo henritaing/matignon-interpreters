@@ -7,8 +7,8 @@ SAT_MAX = 30
 VAL_MIN = 200
 SAMPLE_EVERY = 15             # ~2 fps at 30 fps source
 SKIP_SECONDS = 90             # skip opening credits
-ENTER_STDS_ABOVE_MEAN = 2.0   # how many std above mean to enter blank state
-EXIT_STDS_ABOVE_MEAN = 0.5    # how many std above mean to exit blank state
+ENTER_STDS_ABOVE_MEAN = 2.5   # how many std above mean to enter blank state
+EXIT_STDS_ABOVE_MEAN = 1.0    # how many std above mean to exit blank state
 MAX_GAP = 4.0                 # transitions don't last longer than 4 seconds
 
 

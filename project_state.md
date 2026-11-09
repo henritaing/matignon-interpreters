@@ -464,4 +464,4 @@ Added back SKIP_SECONDS = 90, realized while running check_all_blanks.py that th
 
 Progressing through writing the paper. Trying to find interesting things to find in the dataset I now have. 
 One suggestion I got was creating a co-occurence matrix (how many times an interpreter appear in the same video as another). Previously I created splits, but I was struggling to really create independent splits (especially with such limited data). 
-So, I created a simple script to calculate it based on an extract of the dataset.
+So, I created a simple script to calculate it.
